@@ -64,19 +64,3 @@ $lg-breakpoint: 1024px;
     flex: 2;
   }
 }
-
-.social_link {
-  position: relative;
-  &:hover {
-    &:after {
-      @apply text-sm;
-      position: absolute;
-      content: attr(data-link);
-      bottom: -1.5rem;
-      left: 0;
-      color: black;
-      display: block;
-      width: max-content;
-    }
-  }
-}
