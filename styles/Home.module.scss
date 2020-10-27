@@ -1,0 +1,82 @@
+$lg-breakpoint: 1024px;
+
+.main {
+  @media (min-width: $lg-breakpoint) {
+    height: 100vh;
+  }
+}
+
+.about {
+  a {
+    @apply font-semibold text-teal-600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (min-width: $lg-breakpoint) {
+    flex: 1;
+  }
+}
+
+.description {
+  > * {
+    @apply mb-2;
+  }
+}
+
+.project {
+  height: 20rem;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    p,
+    div,
+    > svg {
+      @apply text-white;
+    }
+  }
+
+  @media (min-width: $lg-breakpoint) {
+    height: 100%;
+  }
+}
+
+.project_button {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.project_list_item {
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $lg-breakpoint) {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+.project_list {
+  @media (min-width: $lg-breakpoint) {
+    flex: 2;
+  }
+}
+
+.social_link {
+  position: relative;
+  &:hover {
+    &:after {
+      @apply text-sm;
+      position: absolute;
+      content: attr(data-link);
+      bottom: -1.5rem;
+      left: 0;
+      color: black;
+      display: block;
+      width: max-content;
+    }
+  }
+}
