@@ -19,6 +19,10 @@ export default function Home({ projects, about, description }: HomeProps) {
     <>
       <Head>
         <title>Nanda Syahrasyad</title>
+        <meta
+          name="description"
+          content="Nanda Syahrasyad is a full-stack software developer specializing in building beautiful web applications and streamlining developer workflows."
+        />
       </Head>
       <main
         className={clsx(
