@@ -28,6 +28,7 @@ const components: Record<string, IconDefinition> = {
 export default function ProjectCard({ frontmatter }: { frontmatter: Frontmatter }) {
   return (
     <a
+      aria-label={frontmatter.title}
       className={clsx(
         "p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative hover:bg-blue-600 hover:text-white",
         styles.project
@@ -55,6 +56,7 @@ export default function ProjectCard({ frontmatter }: { frontmatter: Frontmatter 
         </div>
       )}
       <button
+        aria-label={frontmatter.title}
         className={clsx(
           "w-10 h-10 bg-gray-100 absolute rounded-full text-gray-600",
           styles.project_button,

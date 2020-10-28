@@ -8,15 +8,18 @@ const PREFIXES = ["https://", "mailto:"];
 export default function SocialMedia({
   link,
   icon,
+  label,
 }: {
   link: string;
   icon: IconDefinition;
+  label: string;
 }) {
   const prefix = PREFIXES.find((prefix) => link.startsWith(prefix));
   const displayLink = prefix ? link.slice(prefix.length) : link;
   return (
     <li className="text-lg mr-4">
       <a
+        aria-label={label}
         className={clsx("hover:text-blue-600", styles.social_link)}
         data-link={displayLink}
         href={link}

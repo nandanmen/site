@@ -30,6 +30,7 @@ export default function Home({ projects, about, description }: HomeProps) {
           <img
             className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
             src="./avatar.jpg"
+            alt="Nanda Syahrasyad profile picture"
           />
           <section className="mb-8 lg:col-start-1 lg:col-span-2">
             <div
@@ -41,10 +42,19 @@ export default function Home({ projects, about, description }: HomeProps) {
               dangerouslySetInnerHTML={{ __html: description.content }}
             />
             <ul className="flex mt-4">
-              <SocialMedia link="/resume.pdf" icon={faFileAlt} />
-              <SocialMedia link="mailto:nanda.s@hey.com" icon={faPaperPlane} />
-              <SocialMedia link="https://github.com/narendrasss" icon={faGithub} />
+              <SocialMedia label="Resume" link="/resume.pdf" icon={faFileAlt} />
               <SocialMedia
+                label="Mail to nanda.s@hey.com"
+                link="mailto:nanda.s@hey.com"
+                icon={faPaperPlane}
+              />
+              <SocialMedia
+                label="GitHub"
+                link="https://github.com/narendrasss"
+                icon={faGithub}
+              />
+              <SocialMedia
+                label="LinkedIn"
                 link="https://linkedin.com/in/narendrass/"
                 icon={faLinkedinIn}
               />
