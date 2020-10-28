@@ -2,11 +2,11 @@ import Head from "next/head";
 import clsx from "clsx";
 import { faPaperPlane, faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
-import styles from "../styles/Home.module.scss";
 
-import { Content, getAllProjects, getContentBySlug } from "../lib/projects";
 import SocialMedia from "../components/SocialMedia";
 import ProjectCard, { Frontmatter } from "../components/ProjectCard";
+import { Content, getAllProjects, getContentBySlug } from "../lib/projects";
+import styles from "../styles/Home.module.scss";
 
 type HomeProps = {
   projects: Content[];
