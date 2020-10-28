@@ -4,9 +4,17 @@ import { faPaperPlane, faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
 import styles from "../styles/Home.module.scss";
 
+import { Content, getAllProjects, getContentBySlug } from "../lib/projects";
 import SocialMedia from "../components/SocialMedia";
+import ProjectCard, { Frontmatter } from "../components/ProjectCard";
 
-export default function Home() {
+type HomeProps = {
+  projects: Content[];
+  about: Content;
+  description: Content;
+};
+
+export default function Home({ projects, about, description }: HomeProps) {
   return (
     <>
       <Head>
@@ -24,16 +32,14 @@ export default function Home() {
             src="./avatar.jpg"
           />
           <section className="mb-8 lg:col-start-1 lg:col-span-2">
-            <div className="text-xl font-semibold mb-4">
-              Hey, I'm Nanda! I'm a full-stack developer, currently building
-              educational tools and improving workflows @ Tapestry.
-            </div>
-            <div className={styles.description}>
-              I'm currently pursuing a combined Business & CS degree @ UBC, and
-              volunteering as a tech lead @ UBC Launch Pad in my spare time.
-              <br />
-              Checkout some of the things I've worked on!
-            </div>
+            <div
+              className="text-xl font-semibold mb-4"
+              dangerouslySetInnerHTML={{ __html: about.content }}
+            />
+            <div
+              className={styles.description}
+              dangerouslySetInnerHTML={{ __html: description.content }}
+            />
             <ul className="flex mt-4">
               <SocialMedia link="/resume.pdf" icon={faFileAlt} />
               <SocialMedia link="mailto:nanda.s@hey.com" icon={faPaperPlane} />
@@ -50,8 +56,27 @@ export default function Home() {
             "lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4",
             styles.project_list
           )}
-        ></ul>
+        >
+          {projects.map((project) => (
+            <li
+              key={project.slug}
+              className={clsx("mb-4", styles.project_list_item)}
+            >
+              <ProjectCard frontmatter={project.frontmatter as Frontmatter} />
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const projects = await Promise.all(getAllProjects());
+  const about = await getContentBySlug("about.md");
+  const description = await getContentBySlug("description.md");
+
+  return {
+    props: { about, description, projects },
+  };
 }

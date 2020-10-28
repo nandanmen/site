@@ -1,0 +1,23 @@
+$lg-breakpoint: 1024px;
+
+.project {
+  height: 20rem;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    p,
+    div,
+    > svg {
+      @apply text-white;
+    }
+  }
+
+  @media (min-width: $lg-breakpoint) {
+    height: 100%;
+  }
+}
+
+.project_button {
+  top: 0.75rem;
+  right: 0.75rem;
+}
