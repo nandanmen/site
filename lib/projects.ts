@@ -1,11 +1,11 @@
 import fs from "fs";
-import { join } from "path";
+import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
 
-const contentDir = join(process.cwd(), "content");
-const projectsDir = join(contentDir, "projects");
+const contentDir = path.join(process.cwd(), "content");
+const projectsDir = path.join(contentDir, "projects");
 
 export type Content = {
   frontmatter: Record<string, any>;
@@ -14,7 +14,7 @@ export type Content = {
 };
 
 export async function getContentBySlug(slug: string) {
-  const fullPath = join(contentDir, `${slug}`);
+  const fullPath = path.join(contentDir, `${slug}`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
   return {
