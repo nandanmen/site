@@ -7,11 +7,20 @@ import html from "remark-html";
 const contentDir = path.join(process.cwd(), "content");
 const projectsDir = path.join(contentDir, "projects");
 
-export type Content = {
+export interface Content {
   frontmatter: Record<string, any>;
   content: string;
   slug: string;
-};
+}
+
+export interface Project extends Content {
+  frontmatter: {
+    github: string;
+    link: string | null;
+    tech: string[];
+    title: string;
+  };
+}
 
 export async function getContentBySlug(slug: string) {
   const fullPath = path.join(contentDir, `${slug}`);

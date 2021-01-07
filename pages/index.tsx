@@ -4,12 +4,13 @@ import { faPaperPlane, faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import SocialMedia from "../components/SocialMedia";
-import ProjectCard, { Frontmatter } from "../components/ProjectCard";
-import { Content, getAllProjects, getContentBySlug } from "../lib/projects";
+import ProjectCard from "../components/ProjectCard";
+import { getAllProjects, getContentBySlug } from "../lib/projects";
+import type { Content, Project } from "../lib/projects";
 import styles from "../styles/Home.module.scss";
 
 type HomeProps = {
-  projects: Content[];
+  projects: Project[];
   about: Content;
   description: Content;
 };
@@ -32,13 +33,13 @@ export default function Home({ projects, about, description }: HomeProps) {
       >
         <aside className={clsx("lg:mr-16", styles.about)}>
           <img
-            className="w-16 h-16 bg-gray-500 mb-8 rounded-full border-gray-500 border-2 object-cover"
+            className="object-cover w-16 h-16 mb-8 bg-gray-500 border-2 border-gray-500 rounded-full"
             src="./avatar.jpg"
             alt="Nanda Syahrasyad profile picture"
           />
           <section className="mb-8 lg:col-start-1 lg:col-span-2">
             <div
-              className="text-xl font-semibold mb-4"
+              className="mb-4 text-xl font-semibold"
               dangerouslySetInnerHTML={{ __html: about.content }}
             />
             <div
@@ -76,7 +77,7 @@ export default function Home({ projects, about, description }: HomeProps) {
               key={project.slug}
               className={clsx("mb-4", styles.project_list_item)}
             >
-              <ProjectCard frontmatter={project.frontmatter as Frontmatter} />
+              <ProjectCard frontmatter={project.frontmatter} />
             </li>
           ))}
         </ul>
