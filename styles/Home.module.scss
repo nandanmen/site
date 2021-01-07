@@ -1,7 +1,5 @@
-$lg-breakpoint: 1024px;
-
 .main {
-  @media (min-width: $lg-breakpoint) {
+  @screen lg {
     height: 100vh;
   }
 }
@@ -15,7 +13,7 @@ $lg-breakpoint: 1024px;
     }
   }
 
-  @media (min-width: $lg-breakpoint) {
+  @screen lg {
     flex: 1;
   }
 }
@@ -31,14 +29,14 @@ $lg-breakpoint: 1024px;
     margin-bottom: 0;
   }
 
-  @media (min-width: $lg-breakpoint) {
+  @screen lg {
     flex: 1;
     margin-bottom: 0;
   }
 }
 
 .project_list {
-  @media (min-width: $lg-breakpoint) {
+  @screen lg {
     flex: 2;
   }
 }
