@@ -1,6 +1,8 @@
-import type { Project } from "../lib/projects";
+import type { Project } from '../lib/projects'
 
-export default function ProjectCard({ frontmatter }: Pick<Project, "frontmatter">) {
+export default function ProjectCard({
+  frontmatter,
+}: Pick<Project, 'frontmatter'>) {
   return (
     <a
       aria-label={frontmatter.title}
@@ -8,6 +10,8 @@ export default function ProjectCard({ frontmatter }: Pick<Project, "frontmatter"
       href={frontmatter.link || frontmatter.github}
       target="_blank"
       rel="noreferrer"
-    ></a>
-  );
+    >
+      {frontmatter.title}
+    </a>
+  )
 }

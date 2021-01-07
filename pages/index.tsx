@@ -1,19 +1,19 @@
-import Head from "next/head";
-import clsx from "clsx";
-import { faPaperPlane, faFileAlt } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
+import Head from 'next/head'
+import clsx from 'clsx'
+import { faPaperPlane, faFileAlt } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import SocialMedia from "../components/SocialMedia";
-import ProjectCard from "../components/ProjectCard";
-import { getAllProjects, getContentBySlug } from "../lib/projects";
-import type { Content, Project } from "../lib/projects";
-import styles from "../styles/Home.module.scss";
+import SocialMedia from '../components/SocialMedia'
+import ProjectCard from '../components/ProjectCard'
+import { getAllProjects, getContentBySlug } from '../lib/projects'
+import type { Content, Project } from '../lib/projects'
+import styles from '../styles/Home.module.scss'
 
 type HomeProps = {
-  projects: Project[];
-  about: Content;
-  description: Content;
-};
+  projects: Project[]
+  about: Content
+  description: Content
+}
 
 export default function Home({ projects, about, description }: HomeProps) {
   return (
@@ -27,15 +27,15 @@ export default function Home({ projects, about, description }: HomeProps) {
       </Head>
       <main
         className={clsx(
-          "bg-white px-8 py-12 my-0 mx-auto max-w-screen-sm lg:flex lg:max-w-screen-xl",
+          'bg-white px-8 py-12 my-0 mx-auto max-w-screen-sm lg:flex lg:max-w-screen-xl',
           styles.main
         )}
       >
-        <aside className={clsx("lg:mr-16", styles.about)}>
+        <aside className={clsx('lg:mr-16', styles.about)}>
           <img
             className="object-cover w-16 h-16 mb-8 bg-gray-500 border-2 border-gray-500 rounded-full"
             src="./avatar.jpg"
-            alt="Nanda Syahrasyad profile picture"
+            alt="Headshot of Nanda Syahrasyad"
           />
           <section className="mb-8 lg:col-start-1 lg:col-span-2">
             <div
@@ -68,14 +68,14 @@ export default function Home({ projects, about, description }: HomeProps) {
         </aside>
         <ul
           className={clsx(
-            "lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4",
+            'lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-4',
             styles.project_list
           )}
         >
           {projects.map((project) => (
             <li
               key={project.slug}
-              className={clsx("mb-4", styles.project_list_item)}
+              className={clsx('mb-4', styles.project_list_item)}
             >
               <ProjectCard frontmatter={project.frontmatter} />
             </li>
@@ -83,15 +83,15 @@ export default function Home({ projects, about, description }: HomeProps) {
         </ul>
       </main>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const projects = await Promise.all(getAllProjects());
-  const about = await getContentBySlug("about.md");
-  const description = await getContentBySlug("description.md");
+  const projects = await Promise.all(getAllProjects())
+  const about = await getContentBySlug('about.md')
+  const description = await getContentBySlug('description.md')
 
   return {
     props: { about, description, projects },
-  };
+  }
 }
