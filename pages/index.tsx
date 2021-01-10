@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import clsx from 'clsx'
-import { faPaperPlane, faFileAlt } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { FaPaperPlane, FaFileAlt, FaLinkedinIn, FaGithub } from 'react-icons/fa'
 
 import SocialMedia from '../components/SocialMedia'
 import ProjectCard from '../components/ProjectCard'
@@ -51,21 +50,25 @@ export default function Home({ projects, description }: HomeProps) {
             dangerouslySetInnerHTML={{ __html: description.content }}
           />
           <ul className="flex justify-center mt-4 mb-12">
-            <SocialMedia label="Resume" link="/resume.pdf" icon={faFileAlt} />
+            <SocialMedia
+              label="Resume"
+              link="/resume.pdf"
+              icon={<FaFileAlt />}
+            />
             <SocialMedia
               label="Mail to nanda.s@hey.com"
               link="mailto:nanda.s@hey.com"
-              icon={faPaperPlane}
+              icon={<FaPaperPlane />}
             />
             <SocialMedia
               label="GitHub"
               link="https://github.com/narendrasss"
-              icon={faGithub}
+              icon={<FaGithub />}
             />
             <SocialMedia
               label="LinkedIn"
               link="https://linkedin.com/in/narendrass/"
-              icon={faLinkedinIn}
+              icon={<FaLinkedinIn />}
             />
           </ul>
         </section>
@@ -122,12 +125,12 @@ export default function Home({ projects, description }: HomeProps) {
             <SocialMedia
               label="GitHub"
               link="https://github.com/narendrasss"
-              icon={faGithub}
+              icon={<FaGithub />}
             />
             <SocialMedia
               label="LinkedIn"
               link="https://linkedin.com/in/narendrass/"
-              icon={faLinkedinIn}
+              icon={<FaLinkedinIn />}
             />
           </ul>
         </footer>
