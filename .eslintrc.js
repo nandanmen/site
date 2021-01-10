@@ -24,18 +24,12 @@ module.exports = {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/no-unescaped-entities': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
     // Next passes href attributes to anchors if using next/link
     'jsx-a11y/anchor-is-valid': 'off',
-    'jsx-a11y/label-has-associated-control': [
-      2,
-      {
-        controlComponents: ['Input'],
-        depth: 3,
-      },
-    ],
   },
   settings: {
     react: {

@@ -6,7 +6,7 @@
 
 .about {
   a {
-    @apply font-semibold text-teal-600;
+    @apply font-semibold text-green-400;
 
     &:hover {
       text-decoration: underline;
@@ -39,4 +39,8 @@
   @screen lg {
     flex: 2;
   }
+}
+
+.playground {
+  height: 35rem;
 }

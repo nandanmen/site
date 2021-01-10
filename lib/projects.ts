@@ -15,10 +15,12 @@ export interface Content {
 
 export interface Project extends Content {
   frontmatter: {
+    path: string
     github: string
     link: string | null
     tech: string[]
     title: string
+    blurb: string
   }
 }
 
@@ -31,6 +33,10 @@ export async function getContentBySlug(slug: string) {
     content: await markdownToHtml(content),
     slug,
   }
+}
+
+export function getProjectBySlug(slug: string) {
+  return getContentBySlug(`/projects/${slug}`)
 }
 
 export function getAllProjects() {
