@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-const DOT_SIZE = 5
+const DOT_SIZE = 6
 
 export default function Dots({ numX = 2, numY = 2, space = 12, ...props }) {
   const xArr = array(numX)

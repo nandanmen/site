@@ -1,7 +1,16 @@
 .main {
-  @screen lg {
-    height: 100vh;
+  @screen md {
+    display: grid;
+    grid-template-columns: 1fr 32rem 1fr;
+
+    > * {
+      grid-column: 2 / span 1;
+    }
   }
+}
+
+.full_width {
+  grid-column: 1 / -1;
 }
 
 .description {
@@ -22,6 +31,10 @@
 }
 
 .project_list {
+  @screen md {
+    grid-template-rows: repeat(3, 24rem);
+  }
+
   @screen lg {
     flex: 2;
   }
@@ -29,8 +42,18 @@
 
 .playground {
   height: 35rem;
+
+  @screen md {
+    height: 100%;
+    grid-column: 1 / -1;
+  }
 }
 
 .evital {
   height: 30rem;
+
+  @screen md {
+    height: 100%;
+    grid-row: 2 / span 2;
+  }
 }

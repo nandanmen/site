@@ -17,9 +17,9 @@ export default function ProjectCard({
   children,
 }: ProjectCardProps) {
   return (
-    <section
+    <li
       className={clsx(
-        'block w-full rounded-2xl overflow-hidden relative p-8',
+        'block w-full h-full rounded-2xl overflow-hidden relative p-8 shadow-lg',
         className
       )}
       style={style}
@@ -37,7 +37,7 @@ export default function ProjectCard({
         </Link>
       </article>
       {children}
-    </section>
+    </li>
   )
 }
 
