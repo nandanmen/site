@@ -15,6 +15,9 @@ module.exports = {
           300: '#373844',
         },
       },
+      screens: {
+        md: '640px',
+      },
     },
   },
   variants: {},

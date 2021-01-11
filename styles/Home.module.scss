@@ -8,8 +8,26 @@
     }
   }
 
+  @screen lg {
+    grid-template-columns: 1fr 36rem 1fr;
+  }
+
   @screen xl {
+    @apply mx-auto;
     grid-template-columns: 1fr 44rem 1fr;
+    max-width: 110rem;
+  }
+}
+
+.hero_circle {
+  @apply w-40 h-40 top-4 -left-16;
+
+  @screen md {
+    @apply w-56 h-56 -left-20;
+  }
+
+  @screen xl {
+    @apply w-72 h-72 -left-32;
   }
 }
 

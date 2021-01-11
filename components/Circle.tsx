@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-export default function Circle({ radius, className }) {
+export default function Circle({ radius = null, className }) {
   return (
     <div
       style={{ width: radius, height: radius }}
