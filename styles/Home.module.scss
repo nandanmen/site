@@ -7,6 +7,10 @@
       grid-column: 2 / span 1;
     }
   }
+
+  @screen xl {
+    grid-template-columns: 1fr 44rem 1fr;
+  }
 }
 
 .full_width {
@@ -35,8 +39,9 @@
     grid-template-rows: repeat(3, 24rem);
   }
 
-  @screen lg {
-    flex: 2;
+  @screen xl {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 24rem);
   }
 }
 
@@ -47,6 +52,10 @@
     height: 100%;
     grid-column: 1 / -1;
   }
+
+  @screen xl {
+    grid-column: 1 / span 2;
+  }
 }
 
 .evital {
@@ -55,5 +64,20 @@
   @screen md {
     height: 100%;
     grid-row: 2 / span 2;
+  }
+
+  @screen xl {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 2;
+  }
+}
+
+.emphasis {
+  @apply relative bg-gray-600 md:bg-transparent;
+
+  &:after {
+    @apply absolute bg-gray-600 bottom-0 w-full h-2 left-0;
+    content: '';
+    z-index: -1;
   }
 }

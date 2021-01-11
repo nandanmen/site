@@ -34,36 +34,43 @@ export default function Home({ projects }: HomeProps) {
         className={clsx(
           'p-8 space-y-20 text-white max-w-full',
           'md:py-12 md:px-16 md:space-y-28',
+          'xl:px-48',
           styles.main
         )}
       >
         <Dots numX={6} numY={2} className="md:mx-auto" />
         <header
-          className={clsx('relative', 'md:flex md:flex-col md:items-center')}
+          className={clsx(
+            'relative',
+            'md:flex md:flex-col md:items-center',
+            'xl:flex-row xl:items-start'
+          )}
         >
           <img
             className={clsx(
               'relative z-10 object-cover w-16 h-16 mb-8 bg-gray-400 border-2 border-gray-400 rounded-full',
-              'md:w-20 md:h-20'
+              'md:w-20 md:h-20',
+              'xl:mr-10'
             )}
             src="./avatar.jpg"
             alt="Headshot of Nanda Syahrasyad"
           />
           <div
             className={clsx(
-              'relative z-10 mb-4 space-y-4 font-semibold',
-              'md:text-center md:space-y-6 md:mb-6'
+              'relative z-10 mb-4 space-y-4 font-semibold flex flex-col',
+              'md:items-center md:text-center md:space-y-6 md:mb-6',
+              'xl:items-start xl:text-left xl:space-y-10'
             )}
           >
-            <h1 className={clsx('text-3xl', 'md:text-4xl')}>
+            <h1 className={clsx('text-3xl', 'md:text-4xl', 'xl:text-6xl')}>
               Hey, I'm Nanda{' '}
               <span role="img" aria-label="hand wave">
                 👋
               </span>
             </h1>
-            <p className={clsx('text-lg', 'md:text-xl')}>
+            <p className={clsx('text-lg', 'md:text-xl', 'xl:text-2xl')}>
               Lego connoisseur, student,{' '}
-              <span className="bg-gray-600">full-stack developer</span>.
+              <span className={styles.emphasis}>full-stack developer</span>.
               Currently building educational tools and improving workflows @{' '}
               <a
                 href="https://tapestry-tool.com/"
@@ -73,86 +80,70 @@ export default function Home({ projects }: HomeProps) {
               </a>
               .
             </p>
+            <ul className="flex">
+              <SocialMedia
+                label="Resume"
+                link="/resume.pdf"
+                icon={<FaFileAlt />}
+              />
+              <SocialMedia
+                label="Mail to nanda.s@hey.com"
+                link="mailto:nanda.s@hey.com"
+                icon={<FaPaperPlane />}
+              />
+              <SocialMedia
+                label="GitHub"
+                link="https://github.com/narendrasss"
+                icon={<FaGithub />}
+              />
+              <SocialMedia
+                label="LinkedIn"
+                link="https://linkedin.com/in/narendrass/"
+                icon={<FaLinkedinIn />}
+              />
+            </ul>
           </div>
-          <ul className="flex">
-            <SocialMedia
-              label="Resume"
-              link="/resume.pdf"
-              icon={<FaFileAlt />}
-            />
-            <SocialMedia
-              label="Mail to nanda.s@hey.com"
-              link="mailto:nanda.s@hey.com"
-              icon={<FaPaperPlane />}
-            />
-            <SocialMedia
-              label="GitHub"
-              link="https://github.com/narendrasss"
-              icon={<FaGithub />}
-            />
-            <SocialMedia
-              label="LinkedIn"
-              link="https://linkedin.com/in/narendrass/"
-              icon={<FaLinkedinIn />}
-            />
-          </ul>
         </header>
-        <section className={clsx('space-y-4')}>
-          <p className="text-gray-200">
-            I'm a senior @ UBC, finishing up my Business and CS degree in May of
-            2021.
-          </p>
-          <p className="text-gray-200">
-            On the side, I lead engineering for a small mobile app to reduce
-            food waste (launching Soon™ @{' '}
-            <a
-              href="https://pekoapp.com/"
-              className="font-semibold text-blue-400"
-            >
-              pekoapp.com
-            </a>
-            ). I also lead a software engineering team of 10 students at{' '}
-            <a
-              href="https://ubclaunchpad.com/"
-              className="font-semibold text-blue-400"
-            >
-              UBC Launch Pad
-            </a>
-            , building the next best scheduling tool for friends.
-          </p>
-        </section>
-        <section className="relative space-y-4">
-          <Dots />
-          <h1 className="text-2xl font-semibold">Skills</h1>
-          <p className="relative z-10 text-gray-200">
-            I spend quite a bit of my free time tinkering around with code and
-            new technologies. Here are the ones I'm most comfortable with:
-          </p>
-          <ul className="grid grid-cols-2 grid-rows-3 list-disc list-inside">
-            {[
-              'JavaScript',
-              'React',
-              'TypeScript',
-              'Node',
-              'Vue',
-              'PHP',
-              'WordPress',
-              'Git',
-            ].map((tech) => (
-              <li key={tech} className="relative z-10">
-                {tech}
-              </li>
-            ))}
-          </ul>
+        <section className="xl:flex">
+          <Dots
+            numY={4}
+            className={clsx('hidden', 'xl:grid xl:mr-10 xl:ml-14')}
+          />
+          <div className={clsx('space-y-4', 'xl:-mt-2')}>
+            <p className="text-gray-200">
+              I'm a senior @ UBC, finishing up my Business and CS degree in May
+              of 2021.
+            </p>
+            <p className="text-gray-200">
+              On the side, I lead engineering for a small mobile app to reduce
+              food waste (launching Soon™ @{' '}
+              <a
+                href="https://pekoapp.com/"
+                className="font-semibold text-blue-400"
+              >
+                pekoapp.com
+              </a>
+              ). I also lead a software engineering team of 10 students at{' '}
+              <a
+                href="https://ubclaunchpad.com/"
+                className="font-semibold text-blue-400"
+              >
+                UBC Launch Pad
+              </a>
+              , building the next best scheduling tool for friends.
+            </p>
+          </div>
         </section>
         <section className={clsx(styles.full_width, styles.main)}>
-          <header className="relative mb-12 space-y-4">
-            <Dots />
-            <h1 className="relative z-10 text-2xl font-semibold">Projects</h1>
-            <p className="relative z-10 text-gray-200">
-              Over the last year I've been lucky to have met some incredible
-              people to do projects with. Here's some of my favourites.
-            </p>
+          <header className={clsx('relative mb-12', 'xl:flex')}>
+            <Dots className={clsx('mb-4', 'xl:grid xl:mr-10 xl:ml-14')} />
+            <div className={clsx('space-y-4', '-mt-2')}>
+              <h1 className="relative z-10 text-2xl font-semibold">Projects</h1>
+              <p className="relative z-10 text-gray-200">
+                Over the last year I've been lucky to have met some incredible
+                people to do projects with. Here's some of my favourites.
+              </p>
+            </div>
           </header>
           <ul
             className={clsx(
@@ -208,22 +199,50 @@ export default function Home({ projects }: HomeProps) {
             </ProjectCard>
           </ul>
         </section>
-        <section className="space-y-4">
-          <Dots />
-          <h1 className="text-2xl font-semibold">
-            Let's get to know each other.
-          </h1>
-          <p className="text-gray-200">
-            I'm currently looking for full-time SWE opportunities in Canada (to
-            fund my unhealthy Lego collection of course). If you know any, or if
-            you just want to say hi, feel free to reach out!
-          </p>
-          <a
-            className="block font-semibold text-gray-400"
-            href="mailto:nanda.s@hey.com"
-          >
-            nanda.s@hey.com
-          </a>
+        <section className="xl:flex">
+          <Dots className={clsx('mb-4', 'xl:grid xl:mr-10 xl:ml-14')} />
+          <div className={clsx('space-y-4', '-mt-2')}>
+            <h1 className="text-2xl font-semibold">Skills</h1>
+            <p className="relative z-10 text-gray-200">
+              I spend quite a bit of my free time tinkering around with code and
+              new technologies. Here are the ones I'm most comfortable with:
+            </p>
+            <ul className="grid grid-cols-2 grid-rows-3 list-disc list-inside">
+              {[
+                'JavaScript',
+                'React',
+                'TypeScript',
+                'Node',
+                'Vue',
+                'PHP',
+                'WordPress',
+                'Git',
+              ].map((tech) => (
+                <li key={tech} className="relative z-10">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+        <section className="xl:flex">
+          <Dots className={clsx('mb-4', 'xl:grid xl:mr-10 xl:ml-14')} />
+          <div className={clsx('space-y-4', 'xl:-mt-2')}>
+            <h1 className="text-2xl font-semibold">
+              Let's get to know each other.
+            </h1>
+            <p className="text-gray-200">
+              I'm currently looking for full-time SWE opportunities in Canada
+              (to fund my unhealthy Lego collection of course). If you know any,
+              or if you just want to say hi, feel free to reach out!
+            </p>
+            <a
+              className="block font-semibold text-gray-400"
+              href="mailto:nanda.s@hey.com"
+            >
+              nanda.s@hey.com
+            </a>
+          </div>
         </section>
         <footer
           className={clsx(
