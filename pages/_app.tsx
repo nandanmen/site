@@ -1,4 +1,3 @@
-import '@fortawesome/fontawesome-svg-core/styles.css'
 import '../styles/index.scss'
 
 function MyApp({ Component, pageProps }) {

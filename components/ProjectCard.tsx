@@ -7,27 +7,24 @@ type ProjectCardProps = {
   frontmatter: Project['frontmatter']
   className?: ClassValue
   style?: React.CSSProperties
-  imageDimensions?: {
-    width?: number
-    height?: number
-  }
+  children?: React.ReactNode
 }
 
 export default function ProjectCard({
   frontmatter,
   className,
   style,
-  imageDimensions = {},
+  children,
 }: ProjectCardProps) {
   return (
     <section
       className={clsx(
-        'block w-full rounded-2xl overflow-hidden relative',
+        'block w-full rounded-2xl overflow-hidden relative p-8',
         className
       )}
       style={style}
     >
-      <article className="p-8 pb-0">
+      <article>
         <h1 className="mb-4 text-2xl font-semibold">{frontmatter.title}</h1>
         <p className="mb-4 font-semibold">{frontmatter.blurb}</p>
         <Link href={frontmatter.path}>
@@ -39,12 +36,17 @@ export default function ProjectCard({
           </a>
         </Link>
       </article>
-      <img
-        src={`/projects/${frontmatter.title}.png`}
-        width={imageDimensions.width}
-        height={imageDimensions.height}
-        alt={frontmatter.title}
-      />
+      {children}
     </section>
+  )
+}
+
+export function ProjectImage({ frontmatter, ...props }) {
+  return (
+    <img
+      src={`/projects/${frontmatter.title}.png`}
+      alt={frontmatter.title}
+      {...props}
+    />
   )
 }
