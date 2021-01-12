@@ -138,71 +138,68 @@ export default function Home({ projects }: HomeProps) {
             , building the next best scheduling tool for friends.
           </p>
         </section>
-        <section className={clsx(styles.full_width, styles.main)}>
-          <header className="relative mb-12">
-            <Dots className="mb-6" />
-            <div className={clsx('space-y-4', '-mt-2')}>
-              <h1 className="relative z-10 text-2xl font-semibold">Projects</h1>
-              <p className="relative z-10 text-gray-200">
-                Over the last year I've been lucky to have met some incredible
-                people to do projects with. Here's some of my favourites.
-              </p>
-            </div>
-          </header>
-          <ul
+        <section className="relative mb-12">
+          <Dots className="mb-6" />
+          <div className={clsx('space-y-4', '-mt-2')}>
+            <h1 className="relative z-10 text-2xl font-semibold">Projects</h1>
+            <p className="relative z-10 text-gray-200">
+              Over the last year I've been lucky to have met some incredible
+              people to do projects with. Here's some of my favourites.
+            </p>
+          </div>
+        </section>
+        <ul
+          className={clsx(
+            'space-y-8',
+            styles.full_width,
+            'md:grid md:grid-cols-2 md:space-y-0 md:gap-8',
+            styles.project_list
+          )}
+        >
+          <ProjectCard
+            frontmatter={projects.playground.frontmatter}
             className={clsx(
-              'space-y-8',
-              styles.full_width,
-              'md:grid md:grid-cols-2 md:space-y-0 md:gap-8',
-              styles.project_list
+              'bg-gray-700 focus-within:ring-8 focus-within:ring-gray-400',
+              styles.playground
             )}
           >
-            <ProjectCard
+            <ProjectImage
               frontmatter={projects.playground.frontmatter}
-              className={clsx(
-                'bg-gray-700 focus-within:ring-8 focus-within:ring-gray-400',
-                styles.playground
-              )}
-            >
-              <ProjectImage
-                frontmatter={projects.playground.frontmatter}
-                className="-ml-8"
-                width={900}
-              />
-            </ProjectCard>
-            <ProjectCard
+              className="-ml-8"
+            />
+          </ProjectCard>
+          <ProjectCard
+            frontmatter={projects.keepFresh.frontmatter}
+            className={clsx(
+              'bg-green-600 focus-within:ring-8 focus-within:ring-green-300',
+              styles.keepFresh
+            )}
+          >
+            <ProjectImage
               frontmatter={projects.keepFresh.frontmatter}
-              className="bg-green-600 focus-within:ring-8 focus-within:ring-green-300"
-            >
-              <ProjectImage
-                frontmatter={projects.keepFresh.frontmatter}
-                className="-mb-8 -ml-6"
-                width={400}
-              />
-            </ProjectCard>
-            <ProjectCard
+              className="-mb-8 -ml-6"
+            />
+          </ProjectCard>
+          <ProjectCard
+            frontmatter={projects.evital.frontmatter}
+            className={clsx('bg-red-500', styles.evital)}
+          >
+            <ProjectImage
               frontmatter={projects.evital.frontmatter}
-              className={clsx('bg-red-500', styles.evital)}
-            >
-              <ProjectImage
-                frontmatter={projects.evital.frontmatter}
-                className="mt-4"
-                width="100%"
-              />
-            </ProjectCard>
-            <ProjectCard
+              className="mt-4"
+              width="100%"
+            />
+          </ProjectCard>
+          <ProjectCard
+            frontmatter={projects.visualizer.frontmatter}
+            className={clsx('pb-2 text-blacks-900', styles.visualizer)}
+          >
+            <ProjectImage
               frontmatter={projects.visualizer.frontmatter}
-              className="pb-2 text-blacks-900"
-              style={{ background: '#edd3c2' }}
-            >
-              <ProjectImage
-                frontmatter={projects.visualizer.frontmatter}
-                className="-ml-8"
-                width={600}
-              />
-            </ProjectCard>
-          </ul>
-        </section>
+              className="-ml-8"
+            />
+          </ProjectCard>
+        </ul>
         <section>
           <Dots className="mb-6" />
           <div className="space-y-4">
@@ -231,7 +228,7 @@ export default function Home({ projects }: HomeProps) {
         </section>
         <section className="space-y-4">
           <Dots className="mb-6" />
-          <h1 className="text-2xl font-semibold">
+          <h1 className="relative z-10 text-2xl font-semibold">
             Let's get to know each other.
           </h1>
           <p className="text-gray-200">

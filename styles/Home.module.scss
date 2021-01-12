@@ -15,7 +15,7 @@
   @screen xl {
     @apply mx-auto;
     grid-template-columns: 1fr 44rem 1fr;
-    max-width: 110rem;
+    max-width: 128rem;
   }
 }
 
@@ -59,12 +59,20 @@
 
   @screen xl {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 24rem);
+    grid-template-rows: repeat(2, 32rem);
   }
 }
 
 .playground {
   height: 35rem;
+
+  img {
+    width: 900px;
+
+    @screen xl {
+      width: 105%;
+    }
+  }
 
   @screen md {
     height: 100%;
@@ -73,6 +81,26 @@
 
   @screen xl {
     grid-column: 1 / span 2;
+  }
+}
+
+.keepFresh {
+  img {
+    @screen xl {
+      width: 600px;
+    }
+  }
+}
+
+.visualizer {
+  background: #edd3c2;
+
+  img {
+    width: 600px;
+
+    @screen xl {
+      width: 750px;
+    }
   }
 }
 

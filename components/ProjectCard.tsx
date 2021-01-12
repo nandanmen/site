@@ -20,6 +20,7 @@ export default function ProjectCard({
     <li
       className={clsx(
         'block w-full h-full rounded-2xl overflow-hidden relative p-8 shadow-lg',
+        'xl:p-12',
         className
       )}
       style={style}
