@@ -58,7 +58,7 @@ export default function ProjectCard({
 export function ProjectImage({ frontmatter, ...props }) {
   return (
     <img
-      src={`/thumbnails/${frontmatter.title}.png`}
+      src={`/${frontmatter.title.toLowerCase()}.png`}
       alt={frontmatter.title}
       {...props}
     />
