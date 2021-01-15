@@ -1,70 +1,66 @@
-import clsx from "clsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faExternalLinkAlt,
-  faHeartbeat,
-  faVectorSquare,
-  faSeedling,
-  IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import styles from "./ProjectCard.module.scss";
+import clsx, { ClassValue } from 'clsx'
+import { FiArrowRight } from 'react-icons/fi'
+import type { Project } from '../lib/projects'
 
-import Tapestry from "./Tapestry";
+type ProjectCardProps = {
+  frontmatter: Project['frontmatter']
+  className?: ClassValue
+  style?: React.CSSProperties
+  children?: React.ReactNode
+}
 
-export type Frontmatter = {
-  github: string;
-  link: string | null;
-  tech: string[];
-  title: string;
-};
-
-const components: Record<string, IconDefinition> = {
-  eVital: faHeartbeat,
-  Visualizer: faVectorSquare,
-  KeepFresh: faSeedling,
-};
-
-export default function ProjectCard({ frontmatter }: { frontmatter: Frontmatter }) {
+export default function ProjectCard({
+  frontmatter,
+  className,
+  style,
+  children,
+}: ProjectCardProps) {
   return (
-    <a
-      aria-label={frontmatter.title}
+    <li
       className={clsx(
-        "p-6 rounded-md bg-gray-200 flex flex-col-reverse justify-between relative hover:bg-blue-600 hover:text-white",
-        styles.project
+        'block w-full h-full rounded-2xl overflow-hidden relative p-8 shadow-lg',
+        'xl:p-12',
+        className
       )}
-      href={frontmatter.link || frontmatter.github}
-      target="_blank"
-      rel="noreferrer"
+      style={style}
     >
-      <header>
-        <h1 className="text-lg font-semibold">{frontmatter.title}</h1>
-        <p className="text-xs text-gray-600">
-          {frontmatter.tech.map((name, index) => (
-            <span key={name}>
-              {name}
-              {index === frontmatter.tech.length - 1 ? "" : " / "}
+      <article>
+        <h1 className="mb-4 text-2xl font-semibold">{frontmatter.title}</h1>
+        <p className="mb-4 font-semibold">{frontmatter.blurb}</p>
+        <div className="flex">
+          {frontmatter.link && (
+            <a
+              href={frontmatter.link}
+              className="flex items-center mr-4 focus:outline-none"
+            >
+              <span className="mr-1">Demo</span>
+              <span>
+                <FiArrowRight />
+              </span>
+            </a>
+          )}
+          <a
+            href={frontmatter.github}
+            className="flex items-center focus:outline-none"
+          >
+            <span className="mr-1">See the code</span>
+            <span>
+              <FiArrowRight />
             </span>
-          ))}
-        </p>
-      </header>
-      {frontmatter.title === "Tapestry" ? (
-        <Tapestry />
-      ) : (
-        <div className="text-teal-400 h-full flex items-center justify-center">
-          <FontAwesomeIcon icon={components[frontmatter.title]} size="8x" />
+          </a>
         </div>
-      )}
-      <button
-        aria-label={frontmatter.title}
-        className={clsx(
-          "w-10 h-10 bg-gray-100 absolute rounded-full text-gray-600",
-          styles.project_button,
-          { "text-2xl": !frontmatter.link }
-        )}
-      >
-        <FontAwesomeIcon icon={frontmatter.link ? faExternalLinkAlt : faGithub} />
-      </button>
-    </a>
-  );
+      </article>
+      {children}
+    </li>
+  )
+}
+
+export function ProjectImage({ frontmatter, ...props }) {
+  return (
+    <img
+      src={`/${frontmatter.title.toLowerCase()}.png`}
+      alt={frontmatter.title}
+      {...props}
+    />
+  )
 }
