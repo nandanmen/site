@@ -26,7 +26,9 @@ export default function ProjectCard({
       style={style}
     >
       <article>
-        <h1 className="mb-4 text-2xl font-semibold">{frontmatter.title}</h1>
+        <h1 className="mb-4 text-2xl font-semibold xl:text-4xl">
+          {frontmatter.title}
+        </h1>
         <p className="mb-4 font-semibold">{frontmatter.blurb}</p>
         <Link href={frontmatter.path}>
           <a className="flex items-center focus:outline-none">
