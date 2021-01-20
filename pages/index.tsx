@@ -6,13 +6,14 @@ import SocialMedia from '../components/SocialMedia'
 import ProjectCard, { ProjectImage } from '../components/ProjectCard'
 import Dots from '../components/Dots'
 import Circle from '../components/Circle'
+import Content from '../components/Content'
 import { getContentBySlug, getProjectBySlug } from '../lib/projects'
-import type { Content, Project } from '../lib/projects'
+import type { IContent, IProject } from '../lib/projects'
 import styles from '../styles/Home.module.scss'
 
 type HomeProps = {
-  projects: Record<string, Project>
-  description: Content
+  projects: Record<string, IProject>
+  description: IContent
 }
 
 export default function Home({ projects }: HomeProps) {
@@ -29,15 +30,7 @@ export default function Home({ projects }: HomeProps) {
       <Circle radius="12rem" className="bg-blue-700 top-1/4 -right-16" />
       <Circle radius="16rem" className="bg-blue-900 top-1/3 -left-16" />
       <Circle radius="12rem" className="bg-blue-500 bottom-80 -right-16" />
-      <main
-        className={clsx(
-          'p-8 space-y-20 text-white max-w-full',
-          'md:p-16 md:space-y-28',
-          'lg:px-32 lg:py-24',
-          'xl:px-48',
-          styles.main
-        )}
-      >
+      <Content>
         <div
           style={{ gap: 12 }}
           className="grid grid-flow-col auto-cols-max md:grid-rows-3 md:grid-cols-3 md:absolute md:left-16 lg:left-24 xl:fixed"
@@ -90,27 +83,35 @@ export default function Home({ projects }: HomeProps) {
               </a>
               .
             </p>
-            <ul className="flex">
-              <SocialMedia
-                label="Resume"
-                link="/resume.pdf"
-                icon={<FaFileAlt />}
-              />
-              <SocialMedia
-                label="Mail to nanda.s@hey.com"
-                link="mailto:nanda.s@hey.com"
-                icon={<FaPaperPlane />}
-              />
-              <SocialMedia
-                label="GitHub"
-                link="https://github.com/narendrasss"
-                icon={<FaGithub />}
-              />
-              <SocialMedia
-                label="LinkedIn"
-                link="https://linkedin.com/in/narendrass/"
-                icon={<FaLinkedinIn />}
-              />
+            <ul className="flex space-x-4 text-lg">
+              <li>
+                <SocialMedia
+                  label="Resume"
+                  link="/resume.pdf"
+                  icon={<FaFileAlt />}
+                />
+              </li>
+              <li>
+                <SocialMedia
+                  label="Mail to nanda.s@hey.com"
+                  link="mailto:nanda.s@hey.com"
+                  icon={<FaPaperPlane />}
+                />
+              </li>
+              <li>
+                <SocialMedia
+                  label="GitHub"
+                  link="https://github.com/narendrasss"
+                  icon={<FaGithub />}
+                />
+              </li>
+              <li>
+                <SocialMedia
+                  label="LinkedIn"
+                  link="https://linkedin.com/in/narendrass/"
+                  icon={<FaLinkedinIn />}
+                />
+              </li>
             </ul>
           </div>
         </header>
@@ -150,8 +151,7 @@ export default function Home({ projects }: HomeProps) {
         </section>
         <ul
           className={clsx(
-            'space-y-8',
-            styles.full_width,
+            'space-y-8 px-8 full-width',
             'md:grid md:grid-cols-2 md:space-y-0 md:gap-8',
             styles.project_list
           )}
@@ -242,33 +242,32 @@ export default function Home({ projects }: HomeProps) {
             nanda.s@hey.com
           </a>
         </section>
-        <footer
-          className={clsx(
-            'flex items-center justify-between text-gray-500',
-            styles.full_width
-          )}
-        >
+        <footer className="flex items-center justify-between text-gray-500 full-width">
           <Dots numX={1} />
           <section>
             <p className="mb-2 font-mono text-sm text-center">
               Nanda Syahrasyad 2021
             </p>
-            <ul className="flex justify-center">
-              <SocialMedia
-                label="GitHub"
-                link="https://github.com/narendrasss"
-                icon={<FaGithub />}
-              />
-              <SocialMedia
-                label="LinkedIn"
-                link="https://linkedin.com/in/narendrass/"
-                icon={<FaLinkedinIn />}
-              />
+            <ul className="flex justify-center space-x-4 text-lg">
+              <li>
+                <SocialMedia
+                  label="GitHub"
+                  link="https://github.com/narendrasss"
+                  icon={<FaGithub />}
+                />
+              </li>
+              <li>
+                <SocialMedia
+                  label="LinkedIn"
+                  link="https://linkedin.com/in/narendrass/"
+                  icon={<FaLinkedinIn />}
+                />
+              </li>
             </ul>
           </section>
           <Dots numX={1} />
         </footer>
-      </main>
+      </Content>
     </>
   )
 }

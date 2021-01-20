@@ -1,10 +1,11 @@
 import clsx, { ClassValue } from 'clsx'
 import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
-import type { Project } from '../lib/projects'
+
+import type { IProject } from '../lib/projects'
 
 type ProjectCardProps = {
-  frontmatter: Project['frontmatter']
+  frontmatter: IProject['frontmatter']
   className?: ClassValue
   style?: React.CSSProperties
   children?: React.ReactNode
@@ -47,7 +48,7 @@ export default function ProjectCard({
 export function ProjectImage({ frontmatter, ...props }) {
   return (
     <img
-      src={`/projects/${frontmatter.title}.png`}
+      src={`/thumbnails/${frontmatter.title.toLowerCase()}.png`}
       alt={frontmatter.title}
       {...props}
     />

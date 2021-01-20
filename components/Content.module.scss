@@ -1,0 +1,20 @@
+.main {
+  @screen md {
+    display: grid;
+    grid-template-columns: 1fr 32rem 1fr;
+
+    > * {
+      grid-column: 2 / span 1;
+    }
+  }
+
+  @screen lg {
+    grid-template-columns: 1fr 36rem 1fr;
+  }
+
+  @screen xl {
+    @apply mx-auto;
+    grid-template-columns: 1fr 44rem 1fr;
+    max-width: 128rem;
+  }
+}

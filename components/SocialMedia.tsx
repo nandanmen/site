@@ -15,17 +15,15 @@ export default function SocialMedia({
   const prefix = PREFIXES.find((prefix) => link.startsWith(prefix))
   const displayLink = prefix ? link.slice(prefix.length) : link
   return (
-    <li className="mr-4 text-lg">
-      <a
-        aria-label={label}
-        className={clsx('hover:text-blue-600', styles.social_link)}
-        data-link={displayLink}
-        href={link}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {icon}
-      </a>
-    </li>
+    <a
+      aria-label={label}
+      className={clsx('hover:text-blue-600', styles.social_link)}
+      data-link={displayLink}
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {icon}
+    </a>
   )
 }

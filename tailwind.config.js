@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: {
     content: [
@@ -17,6 +19,9 @@ module.exports = {
       },
       screens: {
         md: '640px',
+      },
+      fontFamily: {
+        sans: ['Karla', ...defaultTheme.fontFamily.sans],
       },
     },
   },
