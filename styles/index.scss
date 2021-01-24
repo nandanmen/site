@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap');
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -23,4 +23,8 @@ img {
     margin-right: revert;
     grid-column: 1 / -1 !important;
   }
+}
+
+.highlight {
+  color: #c792ea;
 }

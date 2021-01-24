@@ -11,6 +11,8 @@ import { getContentBySlug, getProjectBySlug } from '../lib/projects'
 import type { IContent, IProject } from '../lib/projects'
 import styles from '../styles/Home.module.scss'
 
+import { meta as playgroundMeta } from './playground.mdx'
+
 type HomeProps = {
   projects: Record<string, IProject>
   description: IContent
@@ -157,16 +159,13 @@ export default function Home({ projects }: HomeProps) {
           )}
         >
           <ProjectCard
-            frontmatter={projects.playground.frontmatter}
+            frontmatter={playgroundMeta as IProject['frontmatter']}
             className={clsx(
               'bg-gray-700 focus-within:ring-8 focus-within:ring-gray-400',
               styles.playground
             )}
           >
-            <ProjectImage
-              frontmatter={projects.playground.frontmatter}
-              className="-ml-8"
-            />
+            <ProjectImage frontmatter={playgroundMeta} className="-ml-8" />
           </ProjectCard>
           <ProjectCard
             frontmatter={projects.keepFresh.frontmatter}

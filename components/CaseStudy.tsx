@@ -4,19 +4,17 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { FiHome } from 'react-icons/fi'
 
-import Circle from '../../components/Circle'
-import Dots from '../../components/Dots'
-import SocialMedia from '../../components/SocialMedia'
-import Content from '../../components/Content'
-import { getProjectSlugs, getProjectBySlug } from '../../lib/projects'
-import type { IProject } from '../../lib/projects'
-import styles from '../../styles/ProjectPage.module.scss'
+import Circle from './Circle'
+import Dots from './Dots'
+import SocialMedia from './SocialMedia'
+import Content from './Content'
+import styles from '../styles/ProjectPage.module.scss'
 
-export default function ProjectPage({ project }: { project: IProject }) {
+export default function CaseStudy({ meta, children }) {
   return (
     <Content>
       <Head>
-        <title>{project.frontmatter.title}</title>
+        <title>{meta.title}</title>
       </Head>
       <nav className="flex items-center">
         <ul className="text-xl">
@@ -38,21 +36,17 @@ export default function ProjectPage({ project }: { project: IProject }) {
             'md:space-y-6'
           )}
         >
-          <h1 className={clsx('text-3xl', 'md:text-5xl', 'xl:text-6xl')}>
-            {project.frontmatter.title}
-          </h1>
-          <p>{project.frontmatter.blurb}</p>
+          <h1 className={clsx('text-5xl', 'xl:text-6xl')}>{meta.title}</h1>
+          <p>{meta.blurb}</p>
         </div>
       </header>
       <ul className="relative z-10 flex justify-between">
         <MetaItem title="Type">
-          <p className="text-xs md:text-sm xl:text-base">
-            {project.frontmatter.type}
-          </p>
+          <p className="text-xs md:text-sm xl:text-base">{meta.type}</p>
         </MetaItem>
         <MetaItem title="Tech Stack">
           <ul className="space-y-1 text-xs md:text-sm xl:text-base">
-            {project.frontmatter.tech.map((techName: string) => (
+            {meta.tech.map((techName: string) => (
               <li key={techName}>{techName}</li>
             ))}
           </ul>
@@ -60,28 +54,25 @@ export default function ProjectPage({ project }: { project: IProject }) {
         <MetaItem title="Code">
           <p>
             <SocialMedia
-              label={`${project.frontmatter.title} repository`}
-              link={project.frontmatter.github}
+              label={`${meta.title} repository`}
+              link={meta.github}
               icon={<FaGithub />}
             />
           </p>
         </MetaItem>
-        {project.frontmatter.link && (
+        {meta.link && (
           <MetaItem title="Demo">
             <p>
               <SocialMedia
-                label={`${project.frontmatter.title} demo`}
-                link={project.frontmatter.link}
+                label={`${meta.title} demo`}
+                link={meta.link}
                 icon={<FaExternalLinkAlt />}
               />
             </p>
           </MetaItem>
         )}
       </ul>
-      <article
-        className={styles.article}
-        dangerouslySetInnerHTML={{ __html: project.content }}
-      />
+      {children}
     </Content>
   )
 }
@@ -95,24 +86,15 @@ function MetaItem({ title, children }) {
   )
 }
 
-export async function getStaticProps({ params: { slug } }) {
-  return {
-    props: {
-      project: await getProjectBySlug(`${slug}.md`),
-    },
-  }
-}
-
-export async function getStaticPaths() {
-  const slugs = getProjectSlugs()
-  return {
-    paths: slugs.map((slug) => {
-      return {
-        params: {
-          slug: slug.split('.md')[0],
-        },
-      }
-    }),
-    fallback: false,
-  }
+CaseStudy.Content = function CaseStudyContent({ className, ...delegated }) {
+  return (
+    <article
+      className={clsx(
+        styles.article,
+        'bg-blacks-500 px-8 py-16 -mx-8 space-y-16',
+        className
+      )}
+      {...delegated}
+    />
+  )
 }

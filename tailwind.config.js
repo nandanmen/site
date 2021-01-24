@@ -22,6 +22,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Karla', ...defaultTheme.fontFamily.sans],
+        mono: ['Source Code Pro', ...defaultTheme.fontFamily.mono],
       },
     },
   },

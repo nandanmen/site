@@ -1,0 +1,15 @@
+.article {
+  line-height: 1.6;
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  code {
+    @apply text-sm bg-blacks-700 p-1 rounded-sm;
+  }
+}
