@@ -1,0 +1,24 @@
+.main {
+  @apply p-8;
+
+  > p {
+    @apply mb-4;
+  }
+
+  > h2 {
+    @apply text-3xl font-semibold mb-6 mt-12;
+  }
+
+  > h3 {
+    @apply text-xl font-semibold mb-4 mt-6;
+  }
+
+  @screen md {
+    display: grid;
+    grid-template-columns: 1fr calc(min(60ch, 100%)) 1fr;
+
+    > * {
+      grid-column: 2 / span 1;
+    }
+  }
+}

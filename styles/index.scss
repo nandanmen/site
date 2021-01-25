@@ -19,8 +19,7 @@ img {
   @apply -mx-8;
 
   @screen md {
-    margin-left: revert;
-    margin-right: revert;
+    @apply mx-0;
     grid-column: 1 / -1 !important;
   }
 }

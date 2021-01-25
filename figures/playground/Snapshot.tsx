@@ -61,7 +61,7 @@ const item = {
 
 export default function Snapshot() {
   return (
-    <div className="relative flex items-center justify-center py-12">
+    <div className="relative flex items-center justify-center pt-12 pb-20">
       <div className="relative transform skew-y-6">
         <div className="absolute w-full h-full bg-gray-600 rounded-lg bottom-2 left-2"></div>
         <CodeBlock
@@ -76,7 +76,7 @@ export default function Snapshot() {
         ></motion.div>
       </div>
       <motion.ul
-        className="absolute right-0 space-y-2 font-mono bottom-2"
+        className="absolute right-0 space-y-2 font-mono top-36"
         variants={list}
         initial="hide"
         animate="show"
