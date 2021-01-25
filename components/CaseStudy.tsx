@@ -29,7 +29,7 @@ export default function CaseStudy({ meta, children }) {
       </nav>
       <main className={clsx(styles.main, 'mt-16')}>
         <header className="relative mb-16">
-          <Circle className="w-40 h-40 bg-blue-800 -left-16 -top-6" />
+          <Circle className="w-40 h-40 bg-blue-800 -left-16 -top-6 lg:w-64 lg:h-64 lg:-left-32 lg:-top-16" />
           <div
             className={clsx(
               'relative z-10 space-y-4 font-semibold flex flex-col mb-16',
