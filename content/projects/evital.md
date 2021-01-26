@@ -1,5 +1,4 @@
 ---
-path: /projects/evital
 title: eVital
 blurb: Remote patient-doctor communication and monitoring.
 tech: [React Native, Apple HealthKit]

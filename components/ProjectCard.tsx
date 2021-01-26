@@ -31,14 +31,39 @@ export default function ProjectCard({
           {frontmatter.title}
         </h1>
         <p className="mb-4 font-semibold">{frontmatter.blurb}</p>
-        <Link href={frontmatter.path}>
-          <a className="flex items-center focus:outline-none">
-            <span className="mr-1">Read more</span>
-            <span>
-              <FiArrowRight />
-            </span>
-          </a>
-        </Link>
+        {frontmatter.path ? (
+          <Link href={frontmatter.path}>
+            <a className="flex items-center focus:outline-none">
+              <span className="mr-1">Read more</span>
+              <span>
+                <FiArrowRight />
+              </span>
+            </a>
+          </Link>
+        ) : (
+          <div className="flex">
+            {frontmatter.link && (
+              <a
+                href={frontmatter.link}
+                className="flex items-center mr-4 focus:outline-none"
+              >
+                <span className="mr-1">Demo</span>
+                <span>
+                  <FiArrowRight />
+                </span>
+              </a>
+            )}
+            <a
+              href={frontmatter.github}
+              className="flex items-center focus:outline-none"
+            >
+              <span className="mr-1">See the code</span>
+              <span>
+                <FiArrowRight />
+              </span>
+            </a>
+          </div>
+        )}
       </article>
       {children}
     </li>

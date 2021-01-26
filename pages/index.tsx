@@ -274,14 +274,13 @@ export default function Home({ projects }: HomeProps) {
 export async function getStaticProps() {
   const keepFresh = await getProjectBySlug('keep-fresh.md')
   const visualizer = await getProjectBySlug('visualizer.md')
-  const playground = await getProjectBySlug('playground.md')
   const evital = await getProjectBySlug('evital.md')
   const description = await getContentBySlug('description.md')
 
   return {
     props: {
       description,
-      projects: { keepFresh, visualizer, playground, evital },
+      projects: { keepFresh, visualizer, evital },
     },
   }
 }
