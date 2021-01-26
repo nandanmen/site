@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import clsx from 'clsx'
 import { FaPaperPlane, FaFileAlt, FaLinkedinIn, FaGithub } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 import SocialMedia from '../components/SocialMedia'
 import ProjectCard, { ProjectImage } from '../components/ProjectCard'
@@ -28,10 +29,26 @@ export default function Home({ projects }: HomeProps) {
           content="Nanda Syahrasyad is a full-stack software developer specializing in building beautiful web applications and streamlining developer workflows."
         />
       </Head>
-      <Circle className="bg-blue-600 -right-12 -top-10" radius="10rem" />
-      <Circle radius="12rem" className="bg-blue-700 top-1/4 -right-16" />
-      <Circle radius="16rem" className="bg-blue-900 top-1/3 -left-16" />
-      <Circle radius="12rem" className="bg-blue-500 bottom-80 -right-16" />
+      <Circle
+        className="bg-blue-600 -right-12 -top-10"
+        radius="10rem"
+        delay={0.2}
+      />
+      <Circle
+        radius="12rem"
+        className="bg-blue-700 top-1/4 -right-16"
+        delay={0.3}
+      />
+      <Circle
+        radius="16rem"
+        className="bg-blue-900 top-1/3 -left-16"
+        delay={0.4}
+      />
+      <Circle
+        radius="12rem"
+        className="bg-blue-500 bottom-80 -right-16"
+        delay={0.5}
+      />
       <Content>
         <div
           style={{ gap: 12 }}
@@ -45,13 +62,29 @@ export default function Home({ projects }: HomeProps) {
         </div>
         <header className="relative">
           <Circle className={clsx('bg-blue-800', styles.hero_circle)} />
-          <img
+          <motion.img
             className={clsx(
               'relative z-10 object-cover w-16 h-16 mb-8 bg-gray-400 border-2 border-gray-400 rounded-full',
               'md:w-20 md:h-20'
             )}
             src="./avatar.jpg"
             alt="Headshot of Nanda Syahrasyad"
+            variants={{
+              hidden: {
+                scale: 0,
+              },
+              shown: {
+                scale: 1,
+              },
+            }}
+            initial="hidden"
+            animate="shown"
+            transition={{
+              type: 'spring',
+              damping: 5,
+              mass: 0.2,
+              delay: 0.2,
+            }}
           />
           <div
             className={clsx(
