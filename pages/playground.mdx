@@ -18,7 +18,10 @@ export const meta = {
 export default ({ children }) => (
   <CaseStudy meta={meta}>
     <figure className="relative full-width mb-16">
-      <Circle className="w-40 h-40 bg-blue-400 -right-16 -top-6 lg:w-56 lg:h-56" />
+      <Circle
+        className="w-40 h-40 bg-blue-400 -right-16 -top-6 lg:w-56 lg:h-56"
+        delay={0.2}
+      />
       <div className="absolute w-full h-full bg-gray-500 rounded-lg top-2 left-2 lg:top-4 lg:left-4"></div>
       <video
         className="relative shadow-lg md:rounded-lg lg:rounded-xl"

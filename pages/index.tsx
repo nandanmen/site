@@ -8,6 +8,7 @@ import ProjectCard, { ProjectImage } from '../components/ProjectCard'
 import Dots from '../components/Dots'
 import Circle from '../components/Circle'
 import Content from '../components/Content'
+import Wave from '../components/Wave'
 import { getContentBySlug, getProjectBySlug } from '../lib/projects'
 import type { IContent, IProject } from '../lib/projects'
 import styles from '../styles/Home.module.scss'
@@ -93,11 +94,9 @@ export default function Home({ projects }: HomeProps) {
               'xl:items-start xl:text-left xl:space-y-10'
             )}
           >
-            <h1 className={clsx('text-3xl', 'md:text-5xl', 'xl:text-6xl')}>
-              Hey, I'm Nanda{' '}
-              <span role="img" aria-label="hand wave">
-                👋
-              </span>
+            <h1 className={clsx('flex text-3xl', 'md:text-5xl', 'xl:text-6xl')}>
+              Hey, I'm Nanda
+              <Wave />
             </h1>
             <p
               className={clsx(
