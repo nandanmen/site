@@ -19,8 +19,8 @@ export default function Transpile() {
   return (
     <figure className="flex justify-center">
       <div
-        className="relative flex pt-12 pb-40 text-xs"
-        style={{ width: '22rem' }}
+        className="relative flex pt-12 pb-40 text-xs lg:text-sm lg:pt-16 lg:pb-48"
+        style={{ width: 'clamp(22rem, 100%, 28rem)' }}
       >
         <Circle className="w-48 h-48 bg-blue-700 left-1/3 top-4" />
         <div className="transform -skew-y-6">

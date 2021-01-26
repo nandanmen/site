@@ -75,7 +75,7 @@ export default function CaseStudy({ meta, children }) {
         </header>
         {children}
         <footer className="relative flex justify-center p-4 pb-10 mt-16 bg-gray-800 rounded-2xl">
-          <h1 className="text-sm text-center lg:text-base">
+          <h1 className="text-sm text-center lg:text-base xl:text-lg">
             Thanks for reading! For more, check out the code or play around with
             the demo.
           </h1>
@@ -96,7 +96,7 @@ export default function CaseStudy({ meta, children }) {
         </footer>
       </main>
       <footer>
-        <ul className="flex justify-between p-8 font-mono text-sm text-gray-500">
+        <ul className="flex justify-between p-8 font-mono text-sm text-gray-500 lg:text-base">
           <li className="flex-1">
             <Link href="/">
               <a>Home</a>
