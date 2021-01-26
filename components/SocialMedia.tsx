@@ -1,7 +1,4 @@
-import clsx from 'clsx'
-import styles from './SocialMedia.module.scss'
-
-const PREFIXES = ['https://', 'mailto:']
+import { motion } from 'framer-motion'
 
 export default function SocialMedia({
   link,
@@ -12,18 +9,41 @@ export default function SocialMedia({
   icon: React.ReactNode
   label: string
 }) {
-  const prefix = PREFIXES.find((prefix) => link.startsWith(prefix))
-  const displayLink = prefix ? link.slice(prefix.length) : link
   return (
-    <a
+    <motion.a
+      className="relative flex items-center justify-center text-xl focus:outline-none hover:text-white"
       aria-label={label}
-      className={clsx('hover:text-blue-600', styles.social_link)}
-      data-link={displayLink}
       href={link}
       target="_blank"
       rel="noreferrer"
+      initial="idle"
+      variants={{ idle: {}, hover: {} }}
+      whileHover="hover"
+      whileFocus="hover"
     >
-      {icon}
-    </a>
+      <motion.span
+        className="absolute w-12 h-12 bg-blue-500 rounded-full"
+        variants={{
+          idle: {
+            scale: 0,
+          },
+          hover: {
+            scale: 1,
+          },
+        }}
+        initial="idle"
+        transition={{
+          type: 'spring',
+          damping: 5,
+          mass: 0.2,
+        }}
+      ></motion.span>
+      <motion.span
+        className="relative"
+        variants={{ idle: { rotate: 0 }, hover: { rotate: -20 } }}
+      >
+        {icon}
+      </motion.span>
+    </motion.a>
   )
 }

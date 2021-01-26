@@ -99,6 +99,7 @@ export default function Home({ projects }: HomeProps) {
               <Wave />
             </h1>
             <p
+              style={{ lineHeight: 1.4 }}
               className={clsx(
                 'text-lg',
                 'md:text-xl',

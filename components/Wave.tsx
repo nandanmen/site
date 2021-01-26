@@ -21,7 +21,7 @@ export default function Wave() {
   return (
     // eslint-disable-next-line jsx-a11y/accessible-emoji
     <motion.span
-      className="block ml-6"
+      className="block ml-2 lg:ml-4"
       role="img"
       aria-label="hand wave"
       variants={{
