@@ -10,6 +10,10 @@
   }
 }
 
+.full_width {
+  grid-column: 1 / -1;
+}
+
 .description {
   > * {
     @apply mb-2;

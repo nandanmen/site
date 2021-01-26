@@ -1,4 +1,5 @@
 ---
+path: /projects/visualizer
 title: Visualizer
 blurb: Interactive, playable animations for common algorithm patterns.
 tech: [Next.js, Tailwind, Framer Motion]

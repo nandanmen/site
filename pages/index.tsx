@@ -20,7 +20,7 @@ type HomeProps = {
 
 export default function Home({ projects }: HomeProps) {
   return (
-    <>
+    <div className="relative overflow-x-hidden bg-blacks-900 md:text-lg xl:text-2xl">
       <Head>
         <title>Nanda Syahrasyad</title>
         <meta
@@ -267,7 +267,7 @@ export default function Home({ projects }: HomeProps) {
           <Dots numX={1} />
         </footer>
       </Content>
-    </>
+    </div>
   )
 }
 
