@@ -193,19 +193,15 @@ export default function Home({ projects }: HomeProps) {
         >
           <ProjectCard
             frontmatter={playgroundMeta as IProject['frontmatter']}
-            className={clsx(
-              'bg-gray-700 focus-within:ring-8 focus-within:ring-gray-400',
-              styles.playground
-            )}
+            className={clsx('bg-gray-700', styles.playground)}
+            highlightColor="bg-gray-600"
           >
             <ProjectImage frontmatter={playgroundMeta} className="-ml-8" />
           </ProjectCard>
           <ProjectCard
             frontmatter={projects.keepFresh.frontmatter}
-            className={clsx(
-              'bg-green-600 focus-within:ring-8 focus-within:ring-green-300',
-              styles.keepFresh
-            )}
+            className={clsx('bg-green-600', styles.keepFresh)}
+            highlightColor="bg-green-500"
           >
             <ProjectImage
               frontmatter={projects.keepFresh.frontmatter}
@@ -215,6 +211,7 @@ export default function Home({ projects }: HomeProps) {
           <ProjectCard
             frontmatter={projects.evital.frontmatter}
             className={clsx('bg-red-500', styles.evital)}
+            highlightColor="bg-red-400"
           >
             <ProjectImage
               frontmatter={projects.evital.frontmatter}
@@ -225,6 +222,7 @@ export default function Home({ projects }: HomeProps) {
           <ProjectCard
             frontmatter={projects.visualizer.frontmatter}
             className={clsx('pb-2 text-blacks-900', styles.visualizer)}
+            highlightColor="hsl(24, 54%, 90%)"
           >
             <ProjectImage
               frontmatter={projects.visualizer.frontmatter}

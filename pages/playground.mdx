@@ -29,6 +29,7 @@ export default ({ children }) => (
         autoPlay
         loop
         muted
+        playsInline
       />
     </figure>
     {children}
@@ -67,7 +68,7 @@ After modifying the source, the next step is to evaluate the code. In Playground
   caption="The evaluation of the code doesn't block the user from typing."
   fullWidth
 >
-  <video src="/async-debugger.mp4" autoPlay loop />
+  <video src="/async-debugger.mp4" autoPlay loop playsInline />
 </Figure>
 
 ## Takeaways
