@@ -7,14 +7,15 @@ import html from 'remark-html'
 const contentDir = path.join(process.cwd(), 'content')
 const projectsDir = path.join(contentDir, 'projects')
 
-export interface Content {
+export interface IContent {
   frontmatter: Record<string, any>
   content: string
   slug: string
 }
 
-export interface Project extends Content {
+export interface IProject extends IContent {
   frontmatter: {
+    type: string
     path: string
     github: string
     link: string | null

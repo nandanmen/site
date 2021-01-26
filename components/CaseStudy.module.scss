@@ -1,0 +1,29 @@
+.main {
+  > p {
+    @apply mb-4;
+  }
+
+  > h2 {
+    @apply text-3xl font-semibold mb-6 mt-12;
+  }
+
+  > h3 {
+    @apply text-xl font-semibold mb-4 mt-6;
+  }
+
+  code {
+    @apply text-sm font-mono p-1 bg-blacks-300 rounded-sm lg:text-base;
+  }
+
+  @screen md {
+    @apply mx-auto;
+
+    display: grid;
+    grid-template-columns: 1fr calc(min(60ch, 100%)) 1fr;
+    width: calc(min(120ch, 100%));
+
+    > * {
+      grid-column: 2 / span 1;
+    }
+  }
+}

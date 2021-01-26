@@ -1,0 +1,22 @@
+.article {
+  display: grid;
+  grid-template-columns: 1fr calc(min(60ch, calc(100% - 64px))) 1fr;
+  grid-column-gap: 32px;
+  line-height: 1.6;
+
+  > * {
+    grid-column: 2 / span 1;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  code {
+    @apply text-sm bg-blacks-700 p-1 rounded-sm;
+  }
+}

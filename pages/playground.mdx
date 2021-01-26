@@ -1,0 +1,72 @@
+import CaseStudy from '../components/CaseStudy'
+import Figure from '../components/Figure'
+import Circle from '../components/Circle'
+
+import Snapshot from '../figures/playground/Snapshot'
+import Transpile from '../figures/playground/Transpile'
+
+export const meta = {
+  path: '/playground',
+  type: 'Personal',
+  title: 'Playground',
+  tech: ['React', 'Web Workers', 'Babel', 'TailwindCSS'],
+  blurb: 'A visual debugger for JavaScript algorithms.',
+  github: 'https://github.com/narendrasss/playground',
+  link: 'https://playground.narendras.vercel.app',
+}
+
+export default ({ children }) => (
+  <CaseStudy meta={meta}>
+    <figure className="relative full-width mb-16">
+      <Circle className="w-40 h-40 bg-blue-400 -right-16 -top-6 lg:w-56 lg:h-56" />
+      <div className="absolute w-full h-full bg-gray-500 rounded-lg top-2 left-2 lg:top-4 lg:left-4"></div>
+      <video
+        className="relative shadow-lg md:rounded-lg lg:rounded-xl"
+        src="/demo-debugger.mp4"
+        autoPlay
+        loop
+        muted
+      />
+    </figure>
+    {children}
+  </CaseStudy>
+)
+
+Playground is an online debugger that lets you trace through JavaScript functions by adding debugger statements. It's one of my favourite personal projects because I got to use a lot of technologies that were new to me.
+
+## Rationale
+
+When I was building the Visualizer, I needed a way to monitor functions as they run. I messed around with a few different approaches and I eventually landed on a solution that I thought was super cool.
+
+I was thrilled with how the final solution turned out — so much so that I wanted to showcase it *separately* from the Visualizer website. I wanted a place where users could write their own functions, debug them, and run them against whatever inputs they wanted. Hence, Playground was born.
+
+## The Debugger
+
+The app revolves around the `debugger` statement. Using the `debugger` statement, users can create snapshots of their functions and see the values of internal variables at any point in time.
+
+<Snapshot />
+
+## Implementation
+
+The logic to make this work is split in two parts — code analysis and code evaluation.
+
+### Code Analysis
+
+The first part is code analysis — how do you capture and expose the function's internal data? To accomplish this, I leveraged Babel's plugin APIs to modify the program source code, replacing every instance of debugger with a custom snapshot helper function.
+
+<Transpile />
+
+### Code Evaluation
+
+After modifying the source, the next step is to evaluate the code. In Playground, the code evaluation is done off the main thread using a web worker. This means the evaluation process doesn't block the user from interacting with the app! It also allows for features such as timeouts to prevent code from running indefinitely.
+
+<Figure
+  caption="The evaluation of the code doesn't block the user from typing."
+  fullWidth
+>
+  <video src="/async-debugger.mp4" autoPlay loop />
+</Figure>
+
+## Takeaways
+
+My biggest takeaway from this project was the power of web workers — how they can be used to offload expensive computations and improve the overall user experience of the app. It was also interesting to see how Babel works under the hood, by using their lower-level APIs myself. All in all, this project was a fun exercise in using some lesser-known web technologies to solve real problems.
