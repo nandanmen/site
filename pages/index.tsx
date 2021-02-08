@@ -1,6 +1,12 @@
 import Head from 'next/head'
 import clsx from 'clsx'
-import { FaPaperPlane, FaFileAlt, FaLinkedinIn, FaGithub } from 'react-icons/fa'
+import {
+  FaPaperPlane,
+  FaFileAlt,
+  FaLinkedinIn,
+  FaGithub,
+  FaTwitter,
+} from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 import SocialMedia from '../components/SocialMedia'
@@ -101,7 +107,7 @@ export default function Home({ projects }: HomeProps) {
             <p
               style={{ lineHeight: 1.4 }}
               className={clsx(
-                'text-lg',
+                'text-lg space-y-4',
                 'md:text-xl',
                 'lg:text-2xl',
                 'xl:text-3xl'
@@ -115,6 +121,31 @@ export default function Home({ projects }: HomeProps) {
                 className="font-semibold text-blue-400"
               >
                 Tapestry
+              </a>
+              .
+            </p>
+            <p
+              style={{ backgroundColor: '#7692FF' }}
+              className="relative p-8 -mx-8 font-normal rounded-2xl"
+            >
+              I'm seeking junior SWE roles based in Canada! Shoot me a message
+              at {` `}
+              <a
+                className="font-semibold"
+                href="mailto:nanda.s@hey.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                nanda.s@hey.com
+              </a>{' '}
+              or on twitter{' '}
+              <a
+                className="font-semibold"
+                href="https://twitter.com/nansdotio"
+                target="_blank"
+                rel="noreferrer"
+              >
+                @nansdotio
               </a>
               .
             </p>
@@ -145,6 +176,13 @@ export default function Home({ projects }: HomeProps) {
                   label="LinkedIn"
                   link="https://linkedin.com/in/narendrass/"
                   icon={<FaLinkedinIn />}
+                />
+              </li>
+              <li>
+                <SocialMedia
+                  label="Twitter"
+                  link="https://twitter.com/nansdotio"
+                  icon={<FaTwitter />}
                 />
               </li>
             </ul>
@@ -291,6 +329,13 @@ export default function Home({ projects }: HomeProps) {
                   label="LinkedIn"
                   link="https://linkedin.com/in/narendrass/"
                   icon={<FaLinkedinIn />}
+                />
+              </li>
+              <li>
+                <SocialMedia
+                  label="Twitter"
+                  link="https://twitter.com/nansdotio"
+                  icon={<FaTwitter />}
                 />
               </li>
             </ul>
