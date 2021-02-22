@@ -33,16 +33,14 @@ export default function ExperimentsHome() {
       </nav>
       <Main>
         <Shape
-          color="blue-400"
-          className="absolute w-24 -left-16 top-10"
+          className="absolute w-24 text-blue-400 -left-16 top-10"
           r={36}
           style={{
             rotate: 90,
           }}
         />
         <Shape
-          color="blue-800"
-          className="absolute w-40 -left-16 top-20 md:w-56 md:-left-24"
+          className="absolute w-40 text-blue-800 -left-16 top-20 md:w-56 md:-left-24"
           r={60}
           style={{
             rotate: 135,
@@ -52,8 +50,7 @@ export default function ExperimentsHome() {
         />
         <Shape
           as="square"
-          color="yellow-400"
-          className="absolute w-40 top-40 -right-20"
+          className="absolute w-40 text-yellow-400 top-40 -right-20"
           r={60}
           style={{
             rotate: 75,
@@ -110,7 +107,6 @@ function Shape({
   r,
   strokeWidth = 8,
   delay = 0,
-  color,
   className,
   ...props
 }) {
@@ -132,7 +128,7 @@ function Shape({
       viewBox={`${-(r + strokeWidth / 2)} ${-(r + strokeWidth / 2)} ${
         (r + strokeWidth / 2) * 2
       } ${(r + strokeWidth / 2) * 2}`}
-      className={`text-${color} ${className}`}
+      className={className}
       style={{ overflow: 'visible' }}
     >
       <motion.path
