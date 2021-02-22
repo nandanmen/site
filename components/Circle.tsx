@@ -29,8 +29,7 @@ export default function Circle({
       animate="shown"
       transition={{
         type: 'spring',
-        damping: 5,
-        mass: 0.2,
+        bounce: 0.7,
         delay,
       }}
       {...props}
