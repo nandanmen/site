@@ -9,6 +9,8 @@
     "lint": "eslint . --ext .ts,.tsx --fix"
   },
   "dependencies": {
+    "@use-it/interval": "^1.0.0",
+    "bezier-easing": "^2.1.0",
     "clsx": "^1.1.1",
     "framer-motion": "^3.2.1",
     "gray-matter": "^4.0.2",
