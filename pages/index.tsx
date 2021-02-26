@@ -124,31 +124,6 @@ export default function Home({ projects }: HomeProps) {
               </a>
               .
             </p>
-            <p
-              style={{ backgroundColor: '#7692FF' }}
-              className="relative p-8 -mx-8 font-normal rounded-2xl"
-            >
-              I'm seeking junior SWE roles based in Canada! Shoot me a message
-              at {` `}
-              <a
-                className="font-semibold"
-                href="mailto:nanda.s@hey.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                nanda.s@hey.com
-              </a>{' '}
-              or on twitter{' '}
-              <a
-                className="font-semibold"
-                href="https://twitter.com/nansdotio"
-                target="_blank"
-                rel="noreferrer"
-              >
-                @nansdotio
-              </a>
-              .
-            </p>
             <ul className="flex space-x-4 text-lg">
               <li>
                 <SocialMedia
