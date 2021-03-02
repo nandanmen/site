@@ -7,7 +7,7 @@ import {
   FaGithub,
   FaTwitter,
 } from 'react-icons/fa'
-import { motion } from 'framer-motion'
+import { HTMLMotionProps, motion } from 'framer-motion'
 
 import SocialMedia from '../components/SocialMedia'
 import ProjectCard, { ProjectImage } from '../components/ProjectCard'
@@ -115,39 +115,12 @@ export default function Home({ projects }: HomeProps) {
             >
               Lego connoisseur, student,{' '}
               <span className={styles.emphasis}>full-stack developer</span>.
-              Currently building educational tools and improving workflows @{' '}
-              <a
-                href="https://tapestry-tool.com/"
-                className="font-semibold text-blue-400"
-              >
+              Currently building educational tools @{' '}
+              <ExternalLink href="https://tapestry-tool.com/">
                 Tapestry
-              </a>
-              .
-            </p>
-            <p
-              style={{ backgroundColor: '#7692FF' }}
-              className="relative p-8 -mx-8 font-normal rounded-2xl"
-            >
-              I'm seeking junior SWE roles based in Canada! Shoot me a message
-              at {` `}
-              <a
-                className="font-semibold"
-                href="mailto:nanda.s@hey.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                nanda.s@hey.com
-              </a>{' '}
-              or on twitter{' '}
-              <a
-                className="font-semibold"
-                href="https://twitter.com/nansdotio"
-                target="_blank"
-                rel="noreferrer"
-              >
-                @nansdotio
-              </a>
-              .
+              </ExternalLink>{' '}
+              and occasionally writing @{' '}
+              <ExternalLink href="https://nan.fyi/">Not a Number</ExternalLink>.
             </p>
             <ul className="flex space-x-4 text-lg">
               <li>
@@ -344,6 +317,35 @@ export default function Home({ projects }: HomeProps) {
         </footer>
       </Content>
     </>
+  )
+}
+
+function ExternalLink({ children, className, ...props }: HTMLMotionProps<'a'>) {
+  return (
+    <motion.a
+      target="_blank"
+      rel="noreferrer"
+      className={clsx('relative font-semibold text-blue-400', className)}
+      initial="idle"
+      whileHover="hover"
+      {...props}
+    >
+      <motion.span
+        className="absolute bottom-0 w-full bg-blue-400"
+        style={{ height: 4 }}
+        variants={{
+          idle: {
+            opacity: 0,
+            y: 0,
+          },
+          hover: {
+            opacity: 1,
+            y: 8,
+          },
+        }}
+      />
+      {children}
+    </motion.a>
   )
 }
 
