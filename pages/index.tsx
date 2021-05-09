@@ -115,11 +115,7 @@ export default function Home({ projects }: HomeProps) {
             >
               Lego connoisseur, student,{' '}
               <span className={styles.emphasis}>full-stack developer</span>.
-              Currently building educational tools @{' '}
-              <ExternalLink href="https://tapestry-tool.com/">
-                Tapestry
-              </ExternalLink>{' '}
-              and occasionally writing @{' '}
+              Occasional writer @{' '}
               <ExternalLink href="https://nan.fyi/">Not a Number</ExternalLink>.
             </p>
             <ul className="flex space-x-4 text-lg">
@@ -191,7 +187,7 @@ export default function Home({ projects }: HomeProps) {
             <h1 className="relative z-10 text-2xl font-semibold">Projects</h1>
             <p className="relative z-10 text-gray-200">
               Over the last year I've been lucky to have met some incredible
-              people to do projects with. Here's some of my favourites.
+              people to do projects with. Here are some of my favourites.
             </p>
           </div>
         </section>
@@ -273,8 +269,8 @@ export default function Home({ projects }: HomeProps) {
             Let's get to know each other.
           </h1>
           <p className="text-gray-200">
-            I'm currently looking for full-time SWE opportunities in Canada. If
-            you know any, or if you just want to say hi, feel free to reach out!
+            I'm not currently looking for full-time work, but I would love to
+            get to know you anyway! Let's have a chat.
           </p>
           <a
             className="block font-semibold text-gray-400"
